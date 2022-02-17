@@ -1,12 +1,20 @@
 var codigoDescuento = 'DESCUENTO';
 var descuento = 30; 
 
-function suma (a, b){
+function suma(a, b){
     return a + b
 }
 
-function calculo (a){
-    return a ;
+function multiplicar(a, b){
+    return a * b;
+}
+
+function dividir(valor1, valor2){
+    return valor1 / valor2;
+}
+
+function restar(valorDescuento, valorTotal){
+    return valorDescuento - valorTotal;
 }
 
 let miNombre = prompt('Ingresa tu nombre');
@@ -30,11 +38,10 @@ while (isNaN(valorProducto2)){
     valorProducto2 = parseInt(prompt('Ingrese el valor del producto #2'))
 }
 
-suma = valorProducto1 + valorProducto2;
-calculo = formula = descuento * suma;
-calculo = calculo / 100;
-totalDescuento = suma - calculo;
-
+let preciosinDescuento = suma(valorProducto1, valorProducto2);
+let calculo = multiplicar(descuento, preciosinDescuento)
+let valorDescontado = dividir(calculo, 100);
+let precioconDescuento = restar(preciosinDescuento, valorDescontado)
 
 /* SWITCH */
 
@@ -42,11 +49,11 @@ let aplicarDescuento = prompt('¿Quieres aplicar el descuento? Escribe en mayusc
 
 switch (aplicarDescuento){
     case 'SI':
-        document.write('Hola ', miNombre, ' esta es tu factura <br>', nombreProducto1, ' ----- $', valorProducto1, '<br>', nombreProducto2, ' ----- $', valorProducto2, '<br>', 'Aplicaste descuento del ', descuento, '% <br>','El valor total que debes pagar es $', totalDescuento, '<br>')
+        document.write('Hola ', miNombre, ' esta es tu factura <br>', nombreProducto1, ' ----- $', valorProducto1, '<br>', nombreProducto2, ' ----- $', valorProducto2, '<br>', 'Aplicaste descuento del ', descuento, '% <br>', 'Valor descontado $', valorDescontado, '<br>','El valor total que debes pagar es $', precioconDescuento, '<br>')
     break;
 
     case 'NO':
-        document.write('Hola ', miNombre, ' esta es tu factura <br>', nombreProducto1, ' ----- $', valorProducto1, '<br>', nombreProducto2, ' ----- $', valorProducto2, '<br>', 'NO APLICASTE EL DESCUENTO <br>', 'El valor total que debes pagar es $', suma, '<br>')    
+        document.write('Hola ', miNombre, ' esta es tu factura <br>', nombreProducto1, ' ----- $', valorProducto1, '<br>', nombreProducto2, ' ----- $', valorProducto2, '<br>', 'NO APLICASTE EL DESCUENTO <br>', 'El valor total que debes pagar es $', preciosinDescuento, '<br>')    
     break;
 
     }
