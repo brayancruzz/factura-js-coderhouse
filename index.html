@@ -5,10 +5,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="main.js"></script> 
-</body>
+    <div class="container">
+        <div class="inputs-productos">
+           <div class="a-inputs">
+               <label for="name">
+                Producto #1
+                <div class="input-container">
+                    <input type="text" placeholder="Nombre del producto*" id="input-name-a" required>
+                    <input type="number" placeholder="Precio*" id="input-precio-a" required>
+                </div>
+               </label>
+           </div> 
+           <div class="b-inputs">
+               <label for="info-a">
+                Producto #2    
+                <div class="input-container">
+                    <input type="text" placeholder="Nombre del producto*" id="input-name-b" required>
+                    <input type="number" placeholder="Precio*" id="input-precio-b" required>
+                </div>
+               </label>
+           </div>
+           <div class="radio-buttons">
+                <p>¿Quieres aplicar el descuento?</p>
+                <div>
+                    <input type="radio" id="aplicar" name="drone" value="aplicar"
+                        checked>
+                    <label for="aplicar">Aplicar descuento</label>
+                </div>
+                <div>
+                    <input type="radio" id="no-aplicar" name="drone" value="no-aplicar">
+                    <label for="no-aplicar">No aplicar</label>
+                </div>
+           </div>
+           <div class="buttons">
+                <button id="boton-calcular">
+                    Calcular
+                </button>
+                <button id="reload">
+                    Refrescar
+                </button>
+           </div>
+        </div>
+        <div class="output">
+            <div class="border-output">
+                <div class="container-output">
+                    <h3>
+                        Detalles de la compra
+                    </h3>
+                    <div id="output-saludo">
+                    </div>
+                    <div id="output-producto-uno">
+                    </div>
+                    <div id="output-producto-dos">
+                    </div>
+                    <div id="output-descuento">
+                    </div>
+                    <div id="output-descontado">
+                    </div>
+                    <div id="output-total">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/main.js"></script>
+    <script>
+
+    </script>
+</body>
 </html>

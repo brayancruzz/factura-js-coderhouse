@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+body{ 
+    background: linear-gradient(to right, #CBCE91FF, #EA738DFF);
+}
+
+
+.container{
+    margin-top: 50px;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+.container .inputs-productos{
+    display: block;
+    height: auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    font-family: sans-serif;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    max-width: 50%;
+    max-height: 50%;
+}
+
+label{
+    padding: 5px;
+    font-size: 12px;
+}
+
+p{
+    padding-bottom: 5px;
+    font-size: 12px;
+}
+
+
+.container .inputs-productos .b-inputs{
+    padding-top: 0px;
+}
+
+.container .inputs-productos .buttons{
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    width: 100%;
+    
+}
+
+.container .inputs-productos .buttons button{
+    background-color: #E9768D;
+    border: none;
+    border-radius: 200px;
+    height: 30px;
+}
+
+.container .output{
+    background-color: white;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.container .output .border-output{
+    border: dashed 2px rgba(72, 72, 72, 0.612);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.container .output .border-output .container-output{
+    display: grid;
+    gap: 10px;
+}
+
+
+.container .output .border-output .container-output #output-details{    
+    height: 20px;
+}
+
+.input-container input{
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+}

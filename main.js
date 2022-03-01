@@ -1,5 +1,27 @@
 var codigoDescuento = 'DESCUENTO';
 var descuento = 30; 
+var botonCalcular = document.getElementById('boton-calcular');
+var botonRefrescar = document.getElementById('reload');
+var resultadoSaludo = document.getElementById('output-saludo');
+var resultadoProducto1 = document.getElementById('output-producto-uno');
+var resultadoProducto2 = document.getElementById('output-producto-dos');
+var resultadoDescuento = document.getElementById('output-descuento');
+var resultadoDescontado = document.getElementById('output-descontado');
+var resultadoTotal = document.getElementById('output-total');
+
+// OBJETOS
+
+const producto1 = {
+    nombre: 'null',
+    precio: 0,
+}
+
+const producto2 = {
+    nombre: 'null',
+    precio: 0,
+}
+
+// FUNCIONES
 
 function suma(a, b){
     return a + b
@@ -17,43 +39,43 @@ function restar(valorDescuento, valorTotal){
     return valorDescuento - valorTotal;
 }
 
-let miNombre = prompt('Ingresa tu nombre');
-let nombreProducto1 = prompt('Escribe el nombre del producto #1');
-let nombreProducto2 = prompt('Escribe el nombre del producto #2');
-let totalDescuento = 0;
+// EVENTOS
 
-/* SE DEFINE EL VALOR DEL PRODUCTO #1 */
+botonRefrescar.addEventListener("click", ()=>{
+    location.reload();
+    return true;
+})
 
-let valorProducto1 = parseInt(prompt('Ingrese el valor del producto #1'));
+botonCalcular.addEventListener("click", ()=>{
+    producto1.nombre = document.getElementById('input-name-a').value ;
+    producto1.precio = Number(document.getElementById('input-precio-a').value);
+    producto2.nombre = document.getElementById('input-name-b').value;
+    producto2.precio = Number(document.getElementById('input-precio-b').value);
+             
+    let preciosinDescuento = suma(producto1.precio, producto2.precio);
+    let calculo = multiplicar(descuento, preciosinDescuento)
+    let valorDescontado = dividir(calculo, 100);
+    let precioconDescuento = restar(preciosinDescuento, valorDescontado)
 
-while (isNaN(valorProducto1)){
-    valorProducto1 = parseInt(prompt('Ingrese el valor del producto #1'))
-}
+    if (document.getElementById('aplicar').checked){
 
-/* SE DEFINE EL VALOR DEL PRODUCTO #2 */
+        resultadoSaludo.textContent = ('Hola, esta es tu factura');
+        resultadoProducto1.textContent = (producto1.nombre + ' ----- $'+ producto1.precio)
+        resultadoProducto2.textContent = (producto2.nombre + ' ----- $'+ producto2.precio)
+        resultadoDescuento.textContent = ('Aplicaste descuento del: ' + descuento + '%')
+        resultadoDescontado.textContent = ('Valor descontado: $' + valorDescontado)
+        resultadoTotal.textContent = ('Total a pagar: $' + precioconDescuento)
+        }
 
-let valorProducto2 = parseInt(prompt('Ingrese el valor del producto #2'));
+    if(document.getElementById('no-aplicar').checked){
+        calculo = 0;
+        valorDescontado = 0;
+        precioconDescuento = 0;
 
-while (isNaN(valorProducto2)){
-    valorProducto2 = parseInt(prompt('Ingrese el valor del producto #2'))
-}
-
-let preciosinDescuento = suma(valorProducto1, valorProducto2);
-let calculo = multiplicar(descuento, preciosinDescuento)
-let valorDescontado = dividir(calculo, 100);
-let precioconDescuento = restar(preciosinDescuento, valorDescontado)
-
-/* SWITCH */
-
-let aplicarDescuento = prompt('¿Quieres aplicar el descuento? Escribe en mayuscula (SI), si no quieres aplicarlo, escribe "NO"')
-
-switch (aplicarDescuento){
-    case 'SI':
-        document.write('Hola ', miNombre, ' esta es tu factura <br>', nombreProducto1, ' ----- $', valorProducto1, '<br>', nombreProducto2, ' ----- $', valorProducto2, '<br>', 'Aplicaste descuento del ', descuento, '% <br>', 'Valor descontado $', valorDescontado, '<br>','El valor total que debes pagar es $', precioconDescuento, '<br>')
-    break;
-
-    case 'NO':
-        document.write('Hola ', miNombre, ' esta es tu factura <br>', nombreProducto1, ' ----- $', valorProducto1, '<br>', nombreProducto2, ' ----- $', valorProducto2, '<br>', 'NO APLICASTE EL DESCUENTO <br>', 'El valor total que debes pagar es $', preciosinDescuento, '<br>')    
-    break;
-
-    }
+        resultadoSaludo.textContent = ('Hola, esta es tu factura');
+        resultadoProducto1.textContent = (producto1.nombre + ' ----- $'+ producto1.precio)
+        resultadoProducto2.textContent = (producto2.nombre + ' ----- $'+ producto2.precio)
+        resultadoDescuento.textContent = ('No aplicaste el descuento')
+        resultadoDescontado.textContent = ('')
+        resultadoTotal.textContent = ('Total a pagar: $' + preciosinDescuento)
+}})
